@@ -1,0 +1,25 @@
+tracker_type: botsort
+
+# Detection thresholds
+track_high_thresh: 0.7         # Higher = only confident detections tracked
+track_low_thresh: 0.4
+new_track_thresh: 0.5          # Low = allow more new IDs (avoid missing)
+match_thresh: 0.75             # Higher = stricter matching (0.8–0.95 is good)
+
+# Re-ID and matching
+with_reid: True
+reid_weights: 'osnet_x0_25_msmt17.pt'
+proximity_thresh: 0.5          # Lower = less reliance on motion (helpful with occlusion)  # Motion matching leniency
+appearance_thresh: 0.3         # Higher = more reliance on ReID features # Appearance matching strictness
+fuse_score: True
+
+# Track memory buffer (higher = better occlusion handling)
+track_buffer: 500            # Keep memory of disappeared tracks for longer
+
+# Motion compensation
+gmc_method: none      # Needed for camera motion  "sparseOptFlow"
+mot20: False
+model: auto
+
+
+
